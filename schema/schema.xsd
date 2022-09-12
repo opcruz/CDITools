@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="network">
+		<xs:annotation>
+			<xs:documentation>Network Information</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="topology">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="type" default="monoplex">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="monoplex"/>
+										<xs:enumeration value="multiplex"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="directed" type="xs:boolean"/>
+							<xs:element name="weighted" type="xs:int" default="-1"/>
+							<xs:element name="labelNode" type="xs:int" default="-1"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="nodes" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="file" type="xs:string"/>
+							<xs:element name="separator" type="xs:string"/>
+							<xs:element name="head" type="xs:boolean"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="layers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="layer" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="file" type="xs:string"/>
+										<xs:element name="separator" type="xs:string"/>
+										<xs:element name="head" type="xs:boolean"/>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
