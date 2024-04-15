@@ -1,5 +1,3 @@
-source("install.dependences.R")
-
 library(shiny)
 
 # By default, the file size limit is 5MB. It can be changed by
@@ -10,8 +8,7 @@ options(shiny.maxRequestSize = 50 * 1024 ^ 2)
 #Cairo is a 2D graphics library with support for multiple output devices
 options(shiny.usecairo = TRUE)
 
-# options(shiny.port = 8080)
-# options(shiny.host = "0.0.0.0")
+options(shiny.port = 8080)
+options(shiny.host = "0.0.0.0")
 
 runApp(getwd())
-
